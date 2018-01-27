@@ -2,7 +2,7 @@
     "name": "vscode-ui5",
     "displayName": "UI5 Extension for Visual Studio Code",
     "description": "SAP UI5 Extension for Visual Studio Code",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "preview": true,
     "publisher": "milannankov",
     "engines": {

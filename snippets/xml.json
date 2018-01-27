@@ -1,0 +1,44 @@
+{
+    "UI5 - App": {
+        "prefix": "ui5app",
+        "body": [
+            "<mvc:View xmlns:mvc=\"sap.ui.core.mvc\" xmlns=\"sap.m\" controllerName=\"${1:namespace}.controller.App\" displayBlock=\"true\">",
+	        "   <Shell>",
+		    "       <App>",
+			"           <Page title=\"{i18n>TITLE}\" backgroundDesign=\"Solid\">",
+			"               <subHeader>",
+			"                   <Button text=\"Button\" width=\"100px\" id=\"__button0\" type=\"Emphasized\"/>",
+			"               </subHeader>",
+			"               <content>",
+		    "               </content>",
+			"               <footer>",
+			"                   <Bar>",
+			"                       <contentMiddle>",
+			"                       </contentMiddle>",
+            "                       <contentRight>",
+			"                       </contentRight>",
+			"                   </Bar>",
+			"               </footer>",
+			"           </Page>",
+		    "       </App>",
+	        "   </Shell>",
+            "</mvc:View>"
+        ],
+        "description": "UI5 Application View"
+    },
+
+    "UI5 - External View": {
+        "prefix": "ui5view",
+        "body": [
+            "<mvc:View xmlns=\"sap.m\" xmlns:mvc=\"sap.ui.core.mvc\" controllerName=\"${1:namespace}.controller.${2:View}\">",
+	        "   <Panel width=\"auto\">",
+            "       <headerToolbar>",
+            "       </headerToolbar>",
+            "       <content>",
+            "       </content>",
+            "   </Panel>",
+            "</mvc:View>"
+        ],
+        "description": "UI5 View"
+    }
+}

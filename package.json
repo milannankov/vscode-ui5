@@ -3,22 +3,41 @@
     "displayName": "UI5 Extension for Visual Studio Code",
     "description": "SAP UI5 Extension for Visual Studio Code",
     "version": "0.0.1",
+    "preview": true,
     "publisher": "milannankov",
     "engines": {
-        "vscode": "^1.19.0"
+        "vscode": "^1.9.0"
     },
     "categories": [
-        "Other"
+        "Snippets"
     ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
+    "keywords": [
+        "ui5",
+        "snippets",
+        "XML",
+        "Java Script"
     ],
+    "license": "SEE LICENSE IN LICENSE",
+    "bugs": {
+        "url": "https://github.com/milannankov/vscode-ui5/issues",
+        "email": "public@nankov.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/milannankov/vscode-ui5.git"
+    },
+    "homepage": "https://github.com/milannankov/vscode-ui5/blob/master/README.md",
+    "activationEvents": [],
     "main": "./out/extension",
     "contributes": {
-        "commands": [
+        "snippets": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "xml",
+                "path": "./snippets/xml.json"
             }
         ]
     },

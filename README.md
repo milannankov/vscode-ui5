@@ -1,65 +1,35 @@
-# vscode-ui5 README
+# Visual Studio Code Extensions for UI5
 
-This is the README for your extension "vscode-ui5". After writing up a brief description, we recommend including the following sections.
+-------------------
 
-## Features
+This extension contains code snippets for the SAP UI5 framework.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Installation
 
-For example if there is an image subfolder under your extension project workspace:
+In order to install an extension you need to launch the Command Pallete (Ctrl + Shift + P or Cmd + Shift + P) and type Extensions.
+There you have either the option to show the already installed snippets or install new ones.
 
-\!\[feature X\]\(images/feature-x.png\)
+Launch VS Code Quick Open (Ctrl + P or Cmd + P), paste the following command, and press enter.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+`ext install vscode-ui5`
 
-## Requirements
+Alternatively you can open the extensions panel and search for 'UI5 Extension'.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Supported languages (file extensions)
 
-## Extension Settings
+* JavaScript (.js)
+* XML (.xml)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Snippets
 
-For example:
+Below is a list of all available snippets and the triggers of each one. The "=>" means the `TAB` key.
 
-This extension contributes the following settings:
+| Trigger  | Content |
+| -------: | ------- |
+| `ui5controller->` | `UI5 View Controller` |
+| `ui5app->` | `UI5 Application View` |
+| `ui5view->` | `UI5 View` |
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+## License
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT

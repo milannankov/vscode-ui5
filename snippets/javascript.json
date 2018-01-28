@@ -31,6 +31,7 @@
         ],
         "description": "UI5 View Controller"
     },
+
     "UI5 - Advanced Custom Control": {
         "prefix": "ui5cca",
         "body": [
@@ -38,7 +39,7 @@
             " 'sap/ui/core/Control'",
             "], function (Control) {",
             "   'use strict';",
-            "   return Control.extend('cirrus.ui.apps.capa.controls.customControl', {",
+            "   return Control.extend('${1:namespace}.${2:customControl}', {",
             "       metadata: {",
             "           properties: {",
             "               height: { type: 'int', default: 100 }",
@@ -56,11 +57,12 @@
             "",
             "       renderer: function (oRM, oControl) {",
             "",
-            "           oRM.write(\"<div class='customControl' \");",
+            "           oRM.write(\"<div class='${2:customControl}' \");",
             "           oRM.writeControlData(oControl);",
             "           oRM.write(\">\");",
             "           oRM.renderControl(oControl.getAggregation(\"header\"));",
             "           oRM.write(\"<div>Custom control - \" + oControl.getHeight() + \"</div>\");",
+            "           oRM.write(\"</div>\");",
             "",
             "           oControl.fireEvent(\"rendered\", {});",
             "       },",
@@ -76,6 +78,46 @@
             "   });",
             "});"
         ],
-        "description": "Custom controls with aggregation, event, and properties"
+        "description": "Custom control with aggregation, event, and properties"
+    },
+
+    "UI5 - Custom Control": {
+        "prefix": "ui5cc",
+        "body": [
+            "sap.ui.define([",
+            " 'sap/ui/core/Control'",
+            "], function (Control) {",
+            "   'use strict';",
+            "   return Control.extend('${1:namespace}.${2:customControl}', {",
+            "       metadata: {",
+            "           properties: {},",
+            "           aggregations: {},",
+            "           events: {}",
+            "       },",
+            "",
+            "       init: function () {",
+            "       },",
+            "",
+            "       renderer: function (oRM, oControl) {",
+            "",
+            "           oRM.write(\"<div class='${2:customControl}' \");",
+            "           oRM.writeControlData(oControl);",
+            "           oRM.write(\">\");",
+            "           oRM.write(\"<div>Custom control</div>\");",
+            "           oRM.write(\"</div>\");",
+            "       },",
+            "",
+            "       onAfterRendering: function () {",
+            "       },",
+            "",
+            "       onBeforeRendering: function () {",
+            "       },",
+            "",
+            "       exit: function () {",
+            "       }",
+            "   });",
+            "});"
+        ],
+        "description": "Custom UI5 control"
     }
 }

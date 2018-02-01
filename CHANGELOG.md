@@ -5,11 +5,21 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-## [0.2.0] - 2018-01-28
+## [0.3.0] - 2018-02-01
+
 ### Added
-- Snippets for custom controls
+- Snippet for custom objects.
+
+### Changed
+- Double quotes are now used for all snippets.
+
+## [0.2.0] - 2018-01-28
+
+### Added
+- Snippets for custom controls.
 
 ## [0.1.0] - 2018-01-27
+
 ### Added
-- Snippets for Views
-- Snippets for Controllers
+- Snippets for Views.
+- Snippets for Controllers.

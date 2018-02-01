@@ -31,6 +31,7 @@ Below is a list of all available snippets and the triggers of each one. The "->"
 | `ui5view->` | `UI5 View` |
 | `ui5cc->` | `UI5 Custom control` |
 | `ui5cca->` | `UI5 Custom with advanced features` |
+| `ui5co->` | `UI5 Custom object` |
 
 ## License
 

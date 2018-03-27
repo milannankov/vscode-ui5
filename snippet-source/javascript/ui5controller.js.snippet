@@ -1,0 +1,26 @@
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel",
+], function (Controller, JSONModel) {
+    "use strict";
+    return Controller.extend("${1:namespace}.${2:Name}", {
+
+        onInit: function () {
+            var oModel = new JSONModel({
+                items: []
+            });
+            this.getView().setModel(oModel);
+        },
+
+        onBeforeRendering: function () {
+        },
+
+        onAfterRendering: function () {
+        },
+
+        onExit: function () {
+        },
+
+    });
+
+});

@@ -1,29 +1,142 @@
 'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
+import { SnippetConfig, SnippetProcessingOptions } from './core';
+import { JsSnippetList, ManifestGlobPattern, ConfigurationOptionKeys, Messages, XmlSnippetList } from './config';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+let manifestPattern: vscode.RelativePattern = null;
+let manifestNamespace = null;
+let fileWatcher: vscode.FileSystemWatcher;
+let extensionPath = "";
+let jsCompletionItems: Array<vscode.CompletionItem> = [];
+let xmlCompletionItems: Array<vscode.CompletionItem> = [];
+
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "vscode-ui5" is now active!');
+    extensionPath = context.extensionPath;
+    manifestPattern = new vscode.RelativePattern(vscode.workspace.rootPath, path.normalize(ManifestGlobPattern));
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+    let files = vscode.workspace.findFiles(manifestPattern).then(results => {
+        if (results.length >= 0) {
+            initFromManifest(results[0].fsPath);
+            fileWatcher = vscode.workspace.createFileSystemWatcher(results[0].fsPath);
+            fileWatcher.onDidChange(onManifestChange);
+            fileWatcher.onDidDelete(onManifestDelete);
+        }
     });
 
-    context.subscriptions.push(disposable);
+    vscode.workspace.onDidChangeConfiguration(onConfigurationChanged);
+
+    function initFromManifest(manifestPath) {
+
+        updateManifestData(manifestPath);
+        refreshCompletionItems();
+
+        vscode.languages.registerCompletionItemProvider('xml', {
+            provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+                return xmlCompletionItems;
+            }
+        });
+
+        vscode.languages.registerCompletionItemProvider('javascript', {
+            provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+                return jsCompletionItems;
+            }
+        });
+    }
+
+    function updateManifestData(manifestPath) {
+        manifestNamespace = null;
+
+        try {
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+            manifestNamespace = manifest["sap.app"] ? manifest["sap.app"].id : null;
+
+        } catch (e) {
+            vscode.window.showInformationMessage(Messages.InvalidManifest);
+        }
+    }
+
+    function onManifestChange(e: vscode.Uri) {
+        updateManifestData(e.fsPath);
+        refreshCompletionItems();
+    }
+
+    function onManifestDelete(e: vscode.Uri) {
+        manifestNamespace = null;
+        fileWatcher.dispose();
+        fileWatcher = null;
+        refreshCompletionItems();
+    }
+
+    function onConfigurationChanged(e: vscode.ConfigurationChangeEvent) {
+        var hasNewDefaultNamespace = e.affectsConfiguration(ConfigurationOptionKeys.DefaultNamespace);
+        var hasNewUseSingleQuotesJs = e.affectsConfiguration(ConfigurationOptionKeys.UseSingleQuotesJs);
+
+        if (hasNewDefaultNamespace || hasNewUseSingleQuotesJs) {
+            refreshCompletionItems();
+        }
+    }
+
+    function refreshCompletionItems() {
+        let options = getProcessingOptions();
+        jsCompletionItems = JsSnippetList.map(sc => createJsSnippetItem(sc, options));
+        xmlCompletionItems = XmlSnippetList.map(sc => createXmlSnippetItem(sc, options));
+    }
+
+    function getProcessingOptions(): SnippetProcessingOptions {
+        let configuration = vscode.workspace.getConfiguration();
+        let namespaceConfig = configuration.get<string>(ConfigurationOptionKeys.DefaultNamespace);
+        let namespace = namespaceConfig;
+
+        if (namespaceConfig === "manifest.json") {
+            namespace = manifestNamespace;
+        }
+
+        return {
+            useSingleQuotes: configuration.get<boolean>(ConfigurationOptionKeys.UseSingleQuotesJs),
+            namespace: namespace
+        }
+    }
+
+    function createJsSnippetItem(snippet: SnippetConfig, options: SnippetProcessingOptions): vscode.CompletionItem {
+
+        let item = new vscode.CompletionItem(snippet.label, vscode.CompletionItemKind.Snippet);
+        let snippetText = fs.readFileSync(path.join(extensionPath, snippet.filePath), "utf8");
+
+        if (options.namespace) {
+            snippetText = snippetText.replace("namespace", options.namespace);
+        }
+
+        if (options.useSingleQuotes) {
+            snippetText = snippetText.replace(/"/g, "'");
+        }
+
+        item.insertText = new vscode.SnippetString(snippetText);
+        item.documentation = snippet.description;
+
+        return item;
+    }
+
+    function createXmlSnippetItem(snippet: SnippetConfig, options: SnippetProcessingOptions): vscode.CompletionItem {
+
+        let item = new vscode.CompletionItem(snippet.label, vscode.CompletionItemKind.Snippet);
+        let snippetText = fs.readFileSync(path.join(extensionPath, snippet.filePath), "utf8");
+
+        if (options.namespace) {
+            snippetText = snippetText.replace("namespace", options.namespace);
+        }
+
+        item.insertText = new vscode.SnippetString(snippetText);
+        item.documentation = snippet.description;
+
+        return item;
+    }
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {
+    if(fileWatcher) {
+        fileWatcher.dispose();
+    }
 }

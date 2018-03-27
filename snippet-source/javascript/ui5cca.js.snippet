@@ -1,0 +1,39 @@
+sap.ui.define([
+    "sap/ui/core/Control"
+], function (Control) {
+    "use strict";
+    return Control.extend("${1:namespace}.${2:customControl}", {
+        metadata: {
+            properties: {
+                height: { type: "int", default: 100 }
+            },
+            aggregations: {
+                header: { type: "sap.ui.core.Control", multiple: false }
+            },
+            events: {
+                rendered: {}
+            }
+        },
+
+        init: function () {
+        },
+
+        renderer: function (oRM, oControl) {
+
+            oRM.write("<div class=${2:customControl}");
+            oRM.writeControlData(oControl);
+            oRM.write(">");
+            oRM.write("<div>Custom control</div>");
+            oRM.write("</div>");
+        },
+
+        onAfterRendering: function () {
+        },
+
+        onBeforeRendering: function () {
+        },
+
+        exit: function () {
+        }
+    });
+});

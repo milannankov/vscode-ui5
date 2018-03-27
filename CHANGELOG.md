@@ -5,6 +5,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.9.0] - 2018-03-27
+- Snippets now respect the app namespace specified in manifest.json.
+- Introduced setting ui5.snippets.useSingleQuotesJs to control quotes for JavaScript snippets.
+- Introduced setting ui5.snippets.defaultNamespace to control the namespace being used for snippets.
+
+### Added
+- Snippet for custom objects.
+
 ## [0.3.0] - 2018-02-01
 
 ### Added

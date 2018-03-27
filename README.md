@@ -33,6 +33,15 @@ Below is a list of all available snippets and the triggers of each one. The "->"
 | `ui5cca->` | `UI5 Custom with advanced features` |
 | `ui5co->` | `UI5 Custom object` |
 
+## Snippets
+
+Settings to control extension behavior.
+
+| Setting  | Description |
+| -------: | ------- |
+| `ui5.snippets.useSingleQuotesJs` | `Specifies wheather single or double quotes are used for JavaScript snippets.` |
+| `ui5.snippets.defaultNamespace` | `Specifies the default namespace for snippets. If manfest.json is specified, sap.app.id from manifest.json is used.` |  
+
 ## License
 
 MIT

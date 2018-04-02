@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/Control"
 ], function (Control) {
     "use strict";
-    return Control.extend("${1:namespace}.${2:customControl}", {
+    return Control.extend("${1:namespace}.${2:${TM_FILENAME_BASE:customControl}}", {
         metadata: {
             properties: {},
             aggregations: {},
@@ -14,14 +14,11 @@ sap.ui.define([
 
         renderer: function (oRM, oControl) {
 
-            oRM.write("<div class=${2:customControl}");
+            oRM.write("<div class=${2:${TM_FILENAME_BASE:customControl}}");
             oRM.writeControlData(oControl);
             oRM.write(">");
-            oRM.renderControl(oControl.getAggregation(header));
-            oRM.write("<div>Custom control -  + oControl.getHeight() + </div>");
+            oRM.write("<div>Custom control</div>");
             oRM.write("</div>");
-
-            oControl.fireEvent("rendered", {});
         },
 
         onAfterRendering: function () {

@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
 ], function (Controller, JSONModel) {
     "use strict";
-    return Controller.extend("${1:namespace}.${2:Name}", {
+    return Controller.extend("${1:namespace.}${2:${TM_FILENAME_BASE:Controller}}", {
 
         onInit: function () {
             var oModel = new JSONModel({

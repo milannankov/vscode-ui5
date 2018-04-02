@@ -20,27 +20,34 @@ Alternatively you can open the extensions panel and search for 'UI5 Extension'.
 * JavaScript (.js)
 * XML (.xml)
 
-## Snippets
+## JavaScript Snippets
 
-Below is a list of all available snippets and the triggers of each one. The "->" means the `TAB` key.
+Below is a list of all available JavaScript snippets and the triggers of each one. The "->" means the `TAB` key.
 
 | Trigger  | Content |
 | -------: | ------- |
-| `ui5controller->` | `UI5 View Controller` |
-| `ui5app->` | `UI5 Application View` |
-| `ui5view->` | `UI5 View` |
-| `ui5cc->` | `UI5 Custom control` |
-| `ui5cca->` | `UI5 Custom with advanced features` |
-| `ui5co->` | `UI5 Custom object` |
+| `ui5controller->` | UI5 View Controller |
+| `ui5cc->` | UI5 Custom control |
+| `ui5cca->` | UI5 Custom with advanced features |
+| `ui5co->` | UI5 Custom object |
 
-## Snippets
+## XML Snippets
+
+Below is a list of all available XML snippets and the triggers of each one. The "->" means the `TAB` key.
+
+| Trigger  | Content |
+| -------: | ------- |
+| `ui5app->` | UI5 Application View |
+| `ui5view->` | UI5 View |
+
+## Settings
 
 Settings to control extension behavior.
 
 | Setting  | Description |
 | -------: | ------- |
-| `ui5.snippets.useSingleQuotesJs` | `Specifies wheather single or double quotes are used for JavaScript snippets.` |
-| `ui5.snippets.defaultNamespace` | `Specifies the default namespace for snippets. If manfest.json is specified, sap.app.id from manifest.json is used.` |  
+| ui5.snippets.useSingleQuotesJs | Specifies wheather single or double quotes are used for JavaScript snippets. |
+| ui5.snippets.defaultNamespace | Specifies the default namespace for snippets. If manfest.json is specified, sap.app.id from manifest.json is used. |  
 
 ## License
 

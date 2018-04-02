@@ -6,8 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 - All snippets use current filename for naming purposes.
 - Snippet ui5cc: fixed runtime error; filename is now used.
-
-
+- Snippet ui5cca: fixed property default value; filename is now used.
 
 ## [0.9.0] - 2018-03-27
 - Snippets now respect the app namespace specified in manifest.json.

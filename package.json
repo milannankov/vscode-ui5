@@ -2,8 +2,7 @@
     "name": "vscode-ui5",
     "displayName": "UI5 Extension for Visual Studio Code",
     "description": "SAP UI5 extension for Visual Studio Code featuring smart snippets",
-    "version": "0.9.0",
-    "preview": true,
+    "version": "1.0.0",
     "publisher": "milannankov",
     "engines": {
         "vscode": "^1.9.0"

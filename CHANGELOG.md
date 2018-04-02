@@ -4,11 +4,14 @@ All notable changes to the "vscode-ui5" extension will be documented in this fil
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
+
+## [1.0.0]
 - All snippets use current filename for naming purposes.
 - Snippet ui5cc: fixed runtime error; filename is now used.
 - Snippet ui5cca: fixed property default value; filename is now used.
 - Snippet ui5co: fixed code error; filename is now used.
 - Snippet ui5controller: filename is now used.
+- Snippet ui5view: filename is now used.
 
 ## [0.9.0] - 2018-03-27
 - Snippets now respect the app namespace specified in manifest.json.

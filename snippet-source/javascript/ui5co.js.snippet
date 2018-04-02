@@ -1,16 +1,16 @@
-sap.ui.define([,
+sap.ui.define([
     "sap/ui/base/Object"
 ], function (BaseObject) {
     "use strict";
 
-    var ${1:CustomObject} = BaseObject.extend("${2:namespace.}${1:CustomObject}", {
+    var ${2:${TM_FILENAME_BASE:CustomObject}} = BaseObject.extend("${1:namespace.}${2}", {
         constructor: function () {
             BaseObject.call(this);
         }
     });
 
-    ${1}.prototype.customMethod = function () {
+    ${2}.prototype.customMethod = function () {
     }
 
-    return ${1};
+    return ${2};
 });

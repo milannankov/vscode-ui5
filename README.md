@@ -53,8 +53,9 @@ Settings to control extension behavior.
 
 MIT
 
----
-## [New Venture Software](https://www.newventuresoftware.com)
+
+
+## Our Company
 
 ![New Venture Software](nvs.png "New Venture Software")  
 

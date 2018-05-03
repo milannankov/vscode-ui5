@@ -3,8 +3,8 @@ All notable changes to the "vscode-ui5" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
-- Added snippet for Title (ui5-d-ttl_a, and ui5-d-ttl)
+## [1.0.1]
+- Added snippets for Title (ui5-d-ttl_a, and ui5-d-ttl)
 - Added snippet for Label (ui5-d-lbl)
 
 ## [1.0.0]

@@ -41,6 +41,7 @@ Below is a list of all available XML snippets and the triggers of each one. The 
 | `ui5view->` | UI5 View |
 | `ui5-d-ttl->` | UI5 Title control |
 | `ui5-d-ttl_a->` | UI5 Title control with additional properties |
+| `ui5-d-lbl->` | UI5 Label control |
 
 ## Settings
 

@@ -54,5 +54,10 @@ export const XmlSnippetList: Array<SnippetConfig> = [
         filePath: "snippet-source/xml/d/ui5-d-ttl_a.snippet",
         label: "ui5-d-ttl_a",
         description: "UI5 Title control (with additional properties). The Title control represents a single line of text with explicit header / title semantics."
+    },
+    {
+        filePath: "snippet-source/xml/d/ui5-d-lbl.snippet",
+        label: "ui5-d-lbl",
+        description: "UI5 Label control. Provides a textual label for other controls."
     }
 ]

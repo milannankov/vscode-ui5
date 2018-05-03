@@ -5,6 +5,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 - Added snippet for Title (ui5-d-ttl_a, and ui5-d-ttl)
+- Added snippet for Label (ui5-d-lbl)
 
 ## [1.0.0]
 - All snippets use current filename for naming purposes.

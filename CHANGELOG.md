@@ -5,6 +5,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 - Added snippet for Text (ui5-d-txt)
+- Added snippet for Image (ui5-d-img)
 
 ## [1.0.1]
 - Added snippets for Title (ui5-d-ttl_a, and ui5-d-ttl)

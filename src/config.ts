@@ -64,5 +64,10 @@ export const XmlSnippetList: Array<SnippetConfig> = [
         filePath: "snippet-source/xml/d/ui5-d-txt.snippet",
         label: "ui5-d-txt",
         description: "UI5 Text control. The Text control can be used for embedding longer text paragraphs, that need text wrapping, into your app."
+    },
+    {
+        filePath: "snippet-source/xml/d/ui5-d-img.snippet",
+        label: "ui5-d-img",
+        description: "UI5 Image control. A wrapper around the IMG tag. The image can be loaded from a remote or local server."
     }
 ]

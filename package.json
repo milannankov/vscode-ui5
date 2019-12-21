@@ -29,7 +29,7 @@
     "homepage": "https://github.com/milannankov/vscode-ui5/blob/master/README.md",
     "main": "./out/extension",
     "activationEvents": [
-        "workspaceContains:**/manifest.json"
+        "*"
     ],
     "contributes": {
         "configuration": {
